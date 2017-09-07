@@ -1,4 +1,4 @@
-group 'net.daniero'
+group 'com.netcompany.sprak'
 version '0.1-SNAPSHOT'
 
 buildscript {
