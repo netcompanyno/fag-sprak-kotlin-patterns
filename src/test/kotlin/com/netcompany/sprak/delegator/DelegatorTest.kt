@@ -6,7 +6,6 @@ import com.netcompany.sprak.delegator.RandomCache
 import org.jetbrains.spek.api.Spek
 import org.jetbrains.spek.api.dsl.describe
 import org.jetbrains.spek.api.dsl.it
-import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.platform.runner.JUnitPlatform
 import org.junit.runner.RunWith
 
