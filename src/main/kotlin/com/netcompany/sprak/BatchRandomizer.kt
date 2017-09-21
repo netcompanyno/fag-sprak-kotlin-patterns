@@ -1,4 +1,4 @@
-package com.netcompany.sprak.adapter
+package com.netcompany.sprak
 
 import java.util.*
 
