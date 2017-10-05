@@ -13,14 +13,15 @@ import org.junit.runner.RunWith
 @RunWith(JUnitPlatform::class)
 class AdapterTest : Spek({
     describe("BatchRandomizerAverageIterator") {
-        it("takes each random batch, drops the first and last and gives the average of the rest") {
+        it("takes each random batch, drops the first and last and yields the average of the rest") {
             val batchRandomizer = mock<BatchRandomizer> {
-                on { nextBatch() } doReturn listOf(99, 1, 2, 3, 99)
+                on { nextBatch() }.doReturn(listOf(99, 1, 2, 3, 99), listOf(6, 6, 6))
             }
 
             val batchRandomizerAverageIterator = BatchRandomizerAverageIterator(batchRandomizer)
 
             assertEquals(2, batchRandomizerAverageIterator.next())
+            assertEquals(6, batchRandomizerAverageIterator.next())
         }
     }
 })
