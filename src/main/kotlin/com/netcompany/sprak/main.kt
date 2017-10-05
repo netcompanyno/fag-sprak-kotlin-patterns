@@ -1,7 +1,7 @@
 package com.netcompany.sprak
 
 import com.netcompany.sprak.adapter.Randomizer
-import com.netcompany.sprak.decorator.Logger
+import com.netcompany.sprak.decorator.Power
 
 fun main(args: Array<String>) {
     println("Hello, world!")
@@ -18,8 +18,14 @@ fun main(args: Array<String>) {
     println()
 
     println("LogRandomizer")
-    val logRandomizer = Logger(randomizer)
+    val logRandomizer = Power(randomizer)
     (1..10).forEach { println(logRandomizer.next()) }
     println()
 
+    val a = 4 or 2 and 1 or 2
+    val b = 4 or (2 and (1 or 2))
+    val c = ((4 or 2) and 1) or 2
+    println(a)
+    println(b)
+    println(c)
 }
