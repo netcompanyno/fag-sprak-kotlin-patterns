@@ -21,15 +21,11 @@ class Randomizer(batchRandomizer: BatchRandomizer) : BatchRandomizerIteratorAdap
 }
 
 class BatchRandomizerAverageIterator(batchRandomizer: BatchRandomizer) :
-        Iterator<Int> by makeBatchRandomizerAverageIterator(batchRandomizer),
-        BatchRandomizerIteratorAdapter(batchRandomizer) {
-}
+        BatchRandomizerIteratorAdapter(batchRandomizer),
+        Iterator<Int> by buildIterator({
+            while (true) {
+                val middleAverage = batchRandomizer.nextBatch().drop(1).dropLast(1).average().toInt()
+                yield(middleAverage)
+            }
+        })
 
-private fun makeBatchRandomizerAverageIterator(batchRandomizer: BatchRandomizer): Iterator<Int> {
-    return buildIterator {
-        while (true) {
-            val middleAverage = batchRandomizer.nextBatch().drop(1).dropLast(1).average().toInt()
-            yield(middleAverage)
-        }
-    }
-}
