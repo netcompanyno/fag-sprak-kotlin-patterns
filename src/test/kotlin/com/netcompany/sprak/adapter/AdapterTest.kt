@@ -11,9 +11,9 @@ import org.junit.platform.runner.JUnitPlatform
 import org.junit.runner.RunWith
 
 @RunWith(JUnitPlatform::class)
-class DelegatorTest : Spek({
+class AdapterTest : Spek({
     describe("BatchRandomizerAverageIterator") {
-        it("takes each random batch, drops the frst and last and gives the average of the rest") {
+        it("takes each random batch, drops the first and last and gives the average of the rest") {
             val batchRandomizer = mock<BatchRandomizer> {
                 on { nextBatch() } doReturn listOf(99, 1, 2, 3, 99)
             }
